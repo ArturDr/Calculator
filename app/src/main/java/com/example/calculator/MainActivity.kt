@@ -7,15 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 
 import kotlinx.android.synthetic.main.activity_main.* // sprawia, że zmienne są zadeklarowane na poziomie layout i nie
 //trzeba ponownie deklarować
+import kotlin.math.sqrt
 
 private const val STATE_PENDING_OPERATION = "PandingOperation"
 private const val STATE_OPERAND1 = "Operand1"
 private const val STATE_OPERAND1_STORED = "Operand1_Stored"
 
 class MainActivity : AppCompatActivity() {
-   // private lateinit var result: EditText
-   // private lateinit var newNumber: EditText
-   // private val displayOperation by lazy(LazyThreadSafetyMode.NONE) { findViewById<TextView>(R.id.operation) }
+    // private lateinit var result: EditText
+    // private lateinit var newNumber: EditText
+    // private val displayOperation by lazy(LazyThreadSafetyMode.NONE) { findViewById<TextView>(R.id.operation) }
 // ww lateinit i lazy pozwala niedeklarować zmiennej od razu tylko dopiero przy pierwszym użyciu
 
     private var operand1: Double? = null // tu jest null żeby było wiadomo czy coś zostało wpisane
@@ -92,9 +93,34 @@ class MainActivity : AppCompatActivity() {
                     var doubleValue = value.toDouble()
                     doubleValue *= -1
                     newNumber.setText(doubleValue.toString())
-                } catch (e: NumberFormatException){
+                } catch (e: NumberFormatException) {
                     newNumber.setText("")
                 }
+            }
+        }
+
+        buttonSqrt.setOnClickListener {
+            val value = newNumber.text.toString()
+            try {
+                var doubleValue = value.toDouble()
+                doubleValue = sqrt(doubleValue)
+                newNumber.setText(doubleValue.toString())
+            } catch (e: NumberFormatException) {
+                newNumber.setText("")
+            }
+        }
+
+        buttonBackSpace.setOnClickListener {
+            var value = newNumber.text.toString()
+            try {
+                if (value.length > 1) {
+                    value = value.substring(0, value.length - 1)
+                    newNumber.setText(value)
+                } else {
+                    newNumber.setText("")
+                }
+            } catch (e:NumberFormatException) {
+                newNumber.setText("")
             }
         }
     }
@@ -134,7 +160,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        operand1 = if (savedInstanceState.getBoolean(STATE_OPERAND1_STORED, false)){
+        operand1 = if (savedInstanceState.getBoolean(STATE_OPERAND1_STORED, false)) {
             savedInstanceState.getDouble(STATE_OPERAND1)
         } else {
             null
