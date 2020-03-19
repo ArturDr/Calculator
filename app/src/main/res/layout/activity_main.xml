@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonNeg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:minWidth="48dp"
-        android:text="+/-"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMultiply"
-        app:layout_constraintStart_toEndOf="@+id/buttonMultiply" />
-
     <EditText
         android:id="@+id/result"
         android:layout_width="wrap_content"
@@ -70,8 +59,8 @@
         android:layout_marginRight="8dp"
         android:minWidth="48dp"
         android:text="0"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonDot"
-        app:layout_constraintEnd_toStartOf="@+id/buttonDot" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonEquals"
+        app:layout_constraintEnd_toStartOf="@+id/buttonEquals" />
 
     <Button
         android:id="@+id/button1"
@@ -226,8 +215,8 @@
         android:layout_marginRight="8dp"
         android:minWidth="48dp"
         android:text="."
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonEquals"
-        app:layout_constraintEnd_toStartOf="@+id/buttonEquals" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/button0"
+        app:layout_constraintEnd_toStartOf="@+id/button0" />
 
     <Button
         android:id="@+id/buttonEquals"
@@ -238,5 +227,27 @@
         android:text="="
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/buttonNeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:minWidth="48dp"
+        android:text="+/-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMultiply"
+        app:layout_constraintStart_toEndOf="@+id/buttonMultiply" />
+
+    <Button
+        android:id="@+id/buttonSqrt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:minWidth="48dp"
+        android:text="@string/sqr_root"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMinus"
+        app:layout_constraintStart_toEndOf="@+id/buttonMinus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
