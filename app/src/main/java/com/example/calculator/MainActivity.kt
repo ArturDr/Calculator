@@ -119,9 +119,14 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     newNumber.setText("")
                 }
-            } catch (e:NumberFormatException) {
+            } catch (e: NumberFormatException) {
                 newNumber.setText("")
             }
+        }
+
+        buttonC.setOnClickListener {
+            result.setText("")
+            operand1 = null
         }
     }
 

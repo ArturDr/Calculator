@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/buttonC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:minWidth="48dp"
+        android:text="C"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMultiply"
+        app:layout_constraintStart_toEndOf="@+id/buttonMultiply" />
+
     <EditText
         android:id="@+id/result"
         android:layout_width="wrap_content"
@@ -243,8 +254,8 @@
         android:layout_marginLeft="8dp"
         android:minWidth="48dp"
         android:text="+/-"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMultiply"
-        app:layout_constraintStart_toEndOf="@+id/buttonMultiply" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMinus"
+        app:layout_constraintStart_toEndOf="@+id/buttonMinus" />
 
     <Button
         android:id="@+id/buttonSqrt"
@@ -254,8 +265,8 @@
         android:layout_marginLeft="8dp"
         android:minWidth="48dp"
         android:text="@string/sqr_root"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMinus"
-        app:layout_constraintStart_toEndOf="@+id/buttonMinus" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPlus"
+        app:layout_constraintStart_toEndOf="@+id/buttonPlus" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
